@@ -3,27 +3,20 @@ package main
 import "fmt"
 
 func main() {
-	var n, x, y, z int;
-	var med int;
+	var n, x int;
+	var med, max int;
 	fmt.Scan(&n);
 	for i := 1; i <= n; i++ {
-		fmt.Scan(&x, &y, &z);
-		if x > y && x > z {
-			if y > z {
-				med = y;
-			} else {
-				med = z;
-			}
-		} else if y > z && y > x {
-			if x > z {
+		max = 0;
+		med = 0;
+		for j := 0; j < 3; j++ {
+			fmt.Scan(&x);
+			if x > max {
+				med = max;
+				max = x;
+			} else if x > med {
 				med = x;
-			} else {
-				med = z;
 			}
-		} else if x > y {
-			med = x;
-		} else {
-			med = y;
 		}
 		fmt.Printf("Case %v: %v\n", i, med);
 	}
