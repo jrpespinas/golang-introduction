@@ -17,6 +17,8 @@ func min(x, y int) int {
 		return y;
 	}
 }
+
+
 func main() {
 	var curr, next, min1, min2 int;
 	for true {
@@ -24,10 +26,10 @@ func main() {
 		if curr == -1 && next == -1 {
 			break;
 		}
-
-		min1 = abs((100 - curr) - next);
-		min2 = abs(next - curr);
-
+		curr++;
+		next++;
+		min1 = abs(curr - next);
+		min2 = abs(100 - (curr + next));
 		println(min(min1, min2));
 	}
 }
